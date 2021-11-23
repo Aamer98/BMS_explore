@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --mail-user=ar.aamer@gmail.com
+#SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-type=REQUEUE

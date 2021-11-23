@@ -62,7 +62,7 @@ echo "---------------------------------------<Run the program>------------------
 date +"%T"
 cd $SLURM_TMPDIR
 
-cd BMS
+cd BMS_explore
 target_testset="CropDisease"
 
 python BMS_in_na.py --dir ./logs/BMS_in_na/$target_testset --target_dataset $target_testset --target_subset_split datasets/split_seed_1/$target_testset\_unlabeled_20.csv --bsize 128 --epochs 1000 --model resnet10

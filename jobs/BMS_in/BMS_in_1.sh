@@ -62,7 +62,7 @@ echo "---------------------------------------<Run the program>------------------
 date +"%T"
 cd $SLURM_TMPDIR
 
-cd BMS
+cd BMS_explore
 
 target_testset="EuroSAT"
 

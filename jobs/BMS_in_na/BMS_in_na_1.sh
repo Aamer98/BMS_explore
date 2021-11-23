@@ -1,6 +1,5 @@
 #!/bin/bash
-#SBATCH --mail-user=Moslem.Yazdanpanah@gmail.com
-#SBATCH --mail-type=BEGIN
+#SBATCH --mail-user=ar.aamer@gmail.com
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-type=REQUEUE
@@ -22,7 +21,7 @@ echo "------------------------------------< Data preparation>-------------------
 echo "Copying the source code"
 date +"%T"
 cd $SLURM_TMPDIR
-cp -r ~/scratch/BMS .
+cp -r ~/scratch/BMS_explore .
 
 echo "Copying the datasets"
 date +"%T"
@@ -30,7 +29,7 @@ cp -r ~/scratch/CD-FSL_Datasets .
 
 echo "creating data directories"
 date +"%T"
-cd BMS
+cd BMS_explore
 cd data
 unzip -q $SLURM_TMPDIR/CD-FSL_Datasets/miniImagenet.zip
 
@@ -75,4 +74,4 @@ date +"%T"
 echo "--------------------------------------<backup the result>-----------------------------------"
 date +"%T"
 cd $SLURM_TMPDIR
-cp -r $SLURM_TMPDIR/BMS/logs/BMS_in_na/$target_testset/ ~/scratch/BMS/logs/BMS_in_na/
+cp -r $SLURM_TMPDIR/BMS_explore/logs/BMS_in_na/$target_testset/ ~/scratch/BMS_explore/logs/BMS_in_na/

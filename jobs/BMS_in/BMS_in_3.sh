@@ -22,7 +22,7 @@ echo "------------------------------------< Data preparation>-------------------
 echo "Copying the source code"
 date +"%T"
 cd $SLURM_TMPDIR
-cp -r ~/scratch/BMS .
+cp -r ~/scratch/BMS_explore .
 
 echo "Copying the datasets"
 date +"%T"
@@ -30,7 +30,7 @@ cp -r ~/scratch/CD-FSL_Datasets .
 
 echo "creating data directories"
 date +"%T"
-cd BMS
+cd BMS_explore
 cd data
 unzip -q $SLURM_TMPDIR/CD-FSL_Datasets/miniImagenet.zip
 
@@ -74,4 +74,4 @@ date +"%T"
 echo "--------------------------------------<backup the result>-----------------------------------"
 date +"%T"
 cd $SLURM_TMPDIR
-cp -r $SLURM_TMPDIR/BMS/logs/BMS_in/$target_testset/ ~/scratch/BMS/logs/BMS_in/
+cp -r $SLURM_TMPDIR/BMS_explore/logs/BMS_in/$target_testset/ ~/scratch/BMS_explore/logs/BMS_in/

@@ -15,7 +15,7 @@
 
 nvidia-smi
 
-source ~/ENV/bin/activate
+source ~/my_env8/bin/activate
 
 echo "------------------------------------< Data preparation>----------------------------------"
 echo "Copying the source code"

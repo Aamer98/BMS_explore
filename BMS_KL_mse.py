@@ -654,6 +654,8 @@ def validate(model, clf,
     logits_base_all = []
     shifted_logits_base_all = []
     ys_base_all = []
+    base_features_all = []
+    shifted_features_all = []
     with torch.no_grad():
         # Compute the loss on the source base dataset
         for X_base, y_base in base_loader:
@@ -691,15 +693,21 @@ def validate(model, clf,
             logits_base_all.append(logits_base)
             shifted_logits_base_all.append(shifted_logits_base)
             ys_base_all.append(y_base)
+            base_features_all.append(shifted_features_base)
+            shifted_features_all.append(features)
 
     ys_base_all = torch.cat(ys_base_all, dim=0)
     logits_base_all = torch.cat(logits_base_all, dim=0)
     shifted_logits_base_all = torch.cat(shifted_logits_base_all, dim=0)
+    base_features_all = torch.cat(base_features_all, dim=0)
+    shifted_features_all = torch.cat(shifted_features_all, dim=0)
 
     loss_base = loss_ce(logits_base_all, ys_base_all)
     loss_xtask = mse_criterion(shifted_logits_base_all, logits_base_all)
+    loss_kde = kl_loss(base_features_all, shifted_features_all)
 
-    loss = loss_base + loss_xtask
+
+    loss = loss_base + loss_xtask + loss_kde
 
     meters.update('CE_Loss_source_test', loss_base.item(), 1)
     meters.update('Loss_test', loss.item(), 1)

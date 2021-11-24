@@ -1,0 +1,9 @@
+save_dir                    = './logs'
+
+miniImageNet_path           	= './data/miniImagenet'
+DTD_path 						= '/ssd/dtd/images/'
+
+ISIC_path = "./data/ISIC2018"
+ChestX_path = "./data/ChestX-Ray8"
+CropDisease_path = "./data/plant-disease"
+EuroSAT_path = "./data/EuroSAT/2750"
